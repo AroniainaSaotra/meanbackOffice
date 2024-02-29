@@ -1,0 +1,76 @@
+    <!-- partial:partials/_settings-panel.html -->
+    <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close ti-close"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item" *ngIf="session.id_role.nom_role == 'Employé'">
+            <a class="nav-link" (click)="goacc()" [routerLink]="['app/accueil']">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Taches</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts" (click)="gostat()" [routerLink]="['app/statistiques']">
+              <i class="icon-bar-graph menu-icon"></i>
+              <span class="menu-title">Statistiques</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"  aria-controls="ui-basic">
+              <i class="icon-layout menu-icon"></i>
+              <span class="menu-title">Modification</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" (click)="goserv()" [routerLink]="['app/liste-services']">Services</a></li>
+                <li class="nav-item"> <a class="nav-link" (click)="gosouserv()" [routerLink]="['app/liste-sous-services']">Sous Servives</a></li>
+                <li class="nav-item" *ngIf="session.id_role.nom_role == 'Employé'"> <a class="nav-link" (click)="godesc()" [routerLink]="['app/description']"> Profil </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Employe</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" (click)="goemp()" [routerLink]="['app/liste-employe']"> Liste</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth"  aria-expanded="false" aria-controls="auth">
+              <i class="icon-paper menu-icon"></i>
+              <span class="menu-title">Offre</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" (click)="goli()" [routerLink]="['app/liste-offre']" > Liste</a></li>
+                <li class="nav-item"  *ngIf="session.id_role.nom_role == 'Manager'"> <a class="nav-link" (click)="goadd()" [routerLink]="['app/offre']"> Ajout</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
