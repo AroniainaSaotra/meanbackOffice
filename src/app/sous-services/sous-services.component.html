@@ -9,7 +9,7 @@
                 <p>{{listeSousServices.description_detail}}</p>
                 <p>Prix : {{listeSousServices.prix_detail}}</p>
                 <p>Delai : {{listeSousServices.delai_detail}}</p>
-                <p>Comission : {{listeSousServices.comission}}</p>
+                <p>Comission : {{listeSousServices.comission}} %</p>
                 <p>Service : {{listeSousServices.id_service.libelle_service}}</p>
                 <a [routerLink]="['/app/modificationSousServices',listeSousServices._id]" *ngIf="session.id_role.nom_role == 'Manager'"><button type="button" class="btn btn-dark btn-icon-text">
                     Modifier
